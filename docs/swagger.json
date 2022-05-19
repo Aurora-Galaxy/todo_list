@@ -1,0 +1,416 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "This is a sample Server pets",
+        "title": "ToDoList API",
+        "contact": {},
+        "version": "0.0.1"
+    },
+    "basePath": "/api/v1",
+    "paths": {
+        "/delete/:id": {
+            "delete": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "删除任务",
+                "parameters": [
+                    {
+                        "description": "delete",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.DeleteTaskService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/search": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "查询任务",
+                "parameters": [
+                    {
+                        "description": "search",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.SearchTaskService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/task": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "创建任务",
+                "parameters": [
+                    {
+                        "description": "title",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.CreateTaskService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/task/:id": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "展示任务详细信息",
+                "parameters": [
+                    {
+                        "description": "show",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.ShowTaskService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/tasks": {
+            "get": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "获取任务列表",
+                "parameters": [
+                    {
+                        "description": "list",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.ListTasksService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/update/:id": {
+            "put": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "TASK"
+                ],
+                "summary": "修改任务",
+                "parameters": [
+                    {
+                        "description": "update",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.UpdateTaskService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "type": "json"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "USER"
+                ],
+                "summary": "用户登录",
+                "parameters": [
+                    {
+                        "description": "login",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.UserService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status:200,\"data\":{},\"msg\":\"登陆成功\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "USER"
+                ],
+                "summary": "用户注册",
+                "parameters": [
+                    {
+                        "description": "register",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.UserService"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"status\":200,\"data\":{},\"msg\":\"ok\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    },
+                    "500": {
+                        "description": "{\"status\":500,\"data\":{},\"msg\":{},\"error\":\"error\"}",
+                        "schema": {
+                            "$ref": "#/definitions/serializer.Response"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "serializer.Response": {
+            "type": "object",
+            "properties": {
+                "data": {},
+                "error": {
+                    "type": "string"
+                },
+                "msg": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "integer"
+                },
+                "total": {
+                    "type": "integer"
+                }
+            }
+        },
+        "service.CreateTaskService": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "description": "内容",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "任务的状态",
+                    "type": "integer"
+                },
+                "title": {
+                    "description": "标题",
+                    "type": "string"
+                }
+            }
+        },
+        "service.DeleteTaskService": {
+            "type": "object"
+        },
+        "service.ListTasksService": {
+            "type": "object"
+        },
+        "service.SearchTaskService": {
+            "type": "object",
+            "properties": {
+                "info": {
+                    "description": "关键字，按照该字查询",
+                    "type": "string"
+                }
+            }
+        },
+        "service.ShowTaskService": {
+            "type": "object"
+        },
+        "service.UpdateTaskService": {
+            "type": "object",
+            "properties": {
+                "content": {
+                    "description": "内容",
+                    "type": "string"
+                },
+                "status": {
+                    "description": "任务的状态",
+                    "type": "integer"
+                },
+                "title": {
+                    "description": "标题",
+                    "type": "string"
+                }
+            }
+        },
+        "service.UserService": {
+            "type": "object",
+            "required": [
+                "pass_word",
+                "user_name"
+            ],
+            "properties": {
+                "pass_word": {
+                    "description": "限制密码长度",
+                    "type": "string",
+                    "maxLength": 16,
+                    "minLength": 5
+                },
+                "user_name": {
+                    "type": "string",
+                    "maxLength": 16,
+                    "minLength": 3
+                }
+            }
+        }
+    }
+}
